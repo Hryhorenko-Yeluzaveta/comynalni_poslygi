@@ -10,16 +10,20 @@ import lombok.*;
 @ToString
 
 @Entity
-@Table(name = "addresses")
-public class Address {
+@Table(name = "pokaznuk_has_graficSpozh")
+public class PokaznukHasGrafikSpozh {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String city;
-    private String building;
-    private int numberApartment;
+
     @ManyToOne
-    @JoinColumn(name = "abonent_id")
-    private Abonent abonentes;
+    @JoinColumn(name = "pokaznuk_id")
+    private Pokaznuk pokaznuk;
+
+    @ManyToOne
+    @JoinColumn(name = "grafikSpozh_id")
+    private GrafikSpozh grafikSpozh;
+
+    private int quantity;
 }
